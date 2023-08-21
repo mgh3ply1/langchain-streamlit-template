@@ -1,0 +1,37 @@
+Installing Wazuh agents on Windows endpoints
+The agent runs on the endpoint you want to monitor and communicates with the Wazuh server, sending data in near real-time through an encrypted and authenticated channel. Monitor your Windows systems with Wazuh, from Windows XP to the latest available versions including Windows 11 and Windows Server 2022.
+
+Note To perform the installation, administrator privileges are required.
+To start the installation process, download the Windows installer.
+
+Select the installation method you want to follow: command line interface (CLI) or graphical user interface (GUI).
+
+
+
+To deploy the Wazuh agent on your endpoint, choose one of the command shell alternatives and edit the WAZUH_MANAGER variable so that it contains the Wazuh manager IP address or hostname.
+
+Using CMD:
+
+
+wazuh-agent-4.5.0-1.msi /q WAZUH_MANAGER="10.0.0.2"
+Using PowerShell:
+
+
+.\wazuh-agent-4.5.0-1.msi /q WAZUH_MANAGER="10.0.0.2"
+For additional deployment options such as agent name, agent group, and registration password, see the Deployment variables for Windows section.
+
+The installation process is now complete, and the Wazuh agent is successfully installed and configured. You can start the Wazuh agent from the GUI or by running:
+
+
+NET START WazuhSvc
+Once started, the Wazuh agent will start the enrollment process and register with the manager.
+
+Note Alternatively, if you want to install an agent without registering it, omit the deployment variables. To learn more about the different registration methods, see the Wazuh agent enrollment section.
+By default, all agent files are stored in C:\Program Files (x86)\ossec-agent after the installation.
+
+Uninstall a Wazuh agent
+To uninstall the agent, the original Windows installer file is required to perform the unattended process:
+
+
+msiexec.exe /x wazuh-agent-4.5.0-1.msi /qn
+The Wazuh agent is now completely removed from your Windows endpoint.
