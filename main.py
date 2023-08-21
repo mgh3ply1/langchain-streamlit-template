@@ -6,11 +6,8 @@ from langchain.chains import ConversationChain
 from langchain.llms import OpenAI
 from langchain.vectorstores import Chroma
 from langchain.embeddings.openai import OpenAIEmbeddings
-from dotenv import load_dotenv
 from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
-
-load_dotenv()
 
 def load_chroma():
     embed_model = OpenAIEmbeddings()
